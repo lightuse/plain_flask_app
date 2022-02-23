@@ -1,0 +1,30 @@
+
+#roulette {
+  position: relative;
+  -webkit-animation-timing-function: cubic-bezier(0, 0.4, 0.4, 1.04);
+          animation-timing-function: cubic-bezier(0, 0.4, 0.4, 1.04);
+  -webkit-animation-duration: 3.6s;
+          animation-duration: 3.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  width: 308px;
+  height: 308px;
+  border-radius: 50%;
+  counter-reset: num;
+}
+#roulette::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}

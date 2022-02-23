@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_preview">
+        {% if filename %}
+        <div class="img-wrapper">
+            <img src="{{ url_for('display_image', filename=filename) }}" alt="アップロード画像" class="img-fluid">
+        </div>
+        {% endif %}
+        <div id="loader" class="predict_loader">
+            <div class="d-flex justify-content-center">
+                画像を判定中!!
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <div id="view_preview_content_wrapper">
+            <div class="message">
+                <p>
+                  この写真でOK？
+                </p>
+            </div>
+            <form method="POST" action="/predict/">
+                <input type="hidden" name="filename" value="{{ filename }}">
+                <input type="hidden" name="classindex" value="{{ classindex }}">
+                <div class="btn-wrapper mb-2">
+                    <button id="start_predict_btn" type="submit" class="standard-btn select-btn btn">
+                        決定
+                    </button>
+                </div>
+            </form>
+            <div class="btn-wrapper">
+                <a href="/upload" class="standard-btn back-btn btn">
+                    選び直す
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/predict_loading.js') }}" charset="utf-8"></script>
+{% endblock %}

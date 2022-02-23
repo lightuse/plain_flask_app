@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_home">
+        <div class="message">
+            <p>
+                撮影したお庭やお菓子の写真をアップロードしてみましょう。<br>
+                スタッフからのひとことや、お庭のプチ情報が返ってきます。
+            </p>
+        </div>
+        <div class="img-wrapper pb-2">
+            <img src='/static/images/home_image.jpeg' alt="ホーム画像" class="img-fluid">
+        </div>
+        <div class="btn-wrapper mb-3">
+            <a href="/upload" class="standard-btn select-btn btn">
+            遊んでみる
+            </a>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="/about" class="about-link">
+                <small>このサイトについて</small>
+            </a>
+        </div>
+    </div>
+{% endblock %}

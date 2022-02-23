@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_preview">
+        {% if filename %}
+        <div class="img-wrapper">
+            <img src="{{ url_for('display_image', filename=filename) }}" alt="アップロード画像" class="img-fluid">
+        </div>
+        {% endif %}
+        <div class="message">
+            <p>
+              間違えました…この中のどれですか？
+            </p>
+        </div>
+        <form method="POST" action="/roulette">
+            <div class="form-group mb-3">
+                {% for key, value in subject_list.items() %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="subject_index" id="selectRadio_{{ key }}" value="{{ key }}" checked>
+                    <label class="form-check-label" for="selectRadio_{{ key }}">
+                      {{ value }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="btn-wrapper mb-2">
+                <button type="submit" class="standard-btn select-btn btn">
+                    決定
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

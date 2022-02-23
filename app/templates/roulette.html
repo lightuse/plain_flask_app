@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_roulette">
+        <div class="message">
+            <p>誰からのコメントになるかは、</p>
+            <h4>ルーレットで決定！</h4>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <div id = "roulette" class="roulette"></div>
+        </div>
+                
+        <div class="btn-wrapper mb-2">
+            <button id ="start" class="standard-btn select-btn btn">
+                スタート&ストップ
+            </button>
+        </div>
+
+        <form method="POST" action="/comment/">
+            <input id="commenterNumInput" type="hidden" name="commenterNum" value="">
+        </form>    
+   
+    </div>
+    <script src="{{ url_for('static', filename='js/roulette.js') }}" charset="utf-8"></script>
+{% endblock %}

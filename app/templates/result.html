@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_result">
+        <div class="img-wrapper">
+            <img src="{{ url_for('display_image', filename=filename) }}" alt="アップロード画像" class="img-fluid">
+        </div>
+        <div class="message">
+            <p>これってもしかして...</p>
+            <h4>{{ result }}？</h4>
+        </div>
+        <div class="btn-wrapper mb-2">
+            <a href="/roulette" class="standard-btn select-btn btn">
+                そうだよ
+            </a>
+        </div>  
+        <div class="btn-wrapper">
+            <a href="/select" class="standard-btn back-btn btn">
+                違うよ
+            </a>
+        </div>
+    </div>
+{% endblock %}

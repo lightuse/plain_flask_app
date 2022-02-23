@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ comment_author }}からのコメント｜写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_comment">
+        <div class="img-wrapper">
+            <img src="{{ url_for('display_image', filename=stamped_img_name) }}" alt="スタンプ画像" class="img-fluid">
+        </div>
+        <div class="comment pb-3">
+            <div class="message mb-3">
+                <h5>{{ comment_author }}からのコメント</h3>
+                <p>
+                    {{ comment_message }}
+                </p>
+            </div>
+            <div class="btn-wrapper mb-3">
+                <a href="/download/" class="standard-btn select-btn btn">
+                    画像ダウンロード
+                </a>
+            </div>
+            <div class="btn-wrapper mb-3">
+                <a href="/roulette" class="standard-btn back-btn btn">
+                    他のコメントを見る
+                </a>
+            </div>
+            <div class="btn-wrapper mb-3">
+                <div class="btn-wrapper mb-3">
+                    <a href="/" class="standard-btn select-btn btn">
+                        別の写真で遊ぶ
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <strong class="text-highlight">#庭園の静かな時間</strong><strong> でSNSに投稿しよう</strong>
+                </div>
+                <div class="card-text">
+                    <p class="mb-1">
+                        素敵な写真を撮影いただきありがとうございます。ぜひSNSでシェアしてみてください！
+                    </p>
+                    <div class="sns-link-wrapper">
+                        <a href="https://www.facebook.com/" target='_blank'>
+                            <img src='/static/images/sns_icon/facebook.png' alt="facebook">
+                        </a>
+                        <a href="https://www.instagram.com/" target='_blank'>
+                            <img src='/static/images/sns_icon/instagram.png' alt="instagram">
+                        </a>
+                        <a href="https://twitter.com/" target='_blank'>
+                            <img src='/static/images/sns_icon/twitter.png' alt="twitter">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pb-3">
+            <div class="header-primary">
+                <h6>これはいかが？</h6>
+            </div>
+            <div class="img-wrapper">
+                <img src={{ recommend_img_path }} alt="他の画像" class="img-fluid">
+            </div>
+        </div>
+    </div>
+{% endblock %}

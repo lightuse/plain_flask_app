@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}写真で遊ぼう。{% endblock %}
+
+{% block content %}
+    <div id="view_upload">
+        <div id="view_preview_content_wrapper">
+            <div class="message">
+                <p>
+                    撮影したお庭やお菓子の写真をアップロードしてみましょう。<br>
+                    スタッフからのひとことや、お庭のプチ情報が返ってきます。
+                </p>
+            </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="explanation py-4 mb-4">
+                <input class="mb-2" type="file" name="file">
+            </div>
+            <div class="btn-wrapper">
+                <button type="submit" class="standard-btn select-btn btn">
+                    アップロード
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
